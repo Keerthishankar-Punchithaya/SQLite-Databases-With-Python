@@ -11,7 +11,8 @@ c = conn.cursor()
 
 # Query the database - ORDER BY
 # c.execute("SELECT rowid, * FROM customers ORDER BY rowid DESC")
-c.execute("SELECT rowid, * FROM customers ORDER BY last_name")
+# c.execute("SELECT rowid, * FROM customers ORDER BY last_name")
+c.execute("SELECT rowid, * FROM customers WHERE last_name LIKE 'Na%' OR rowid = 3")
 
 items = c.fetchall()
 
