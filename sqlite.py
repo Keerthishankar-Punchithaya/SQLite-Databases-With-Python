@@ -9,10 +9,9 @@ c = conn.cursor()
 
 
 
-# Query the database - ORDER BY
-# c.execute("SELECT rowid, * FROM customers ORDER BY rowid DESC")
-# c.execute("SELECT rowid, * FROM customers ORDER BY last_name")
-c.execute("SELECT rowid, * FROM customers WHERE last_name LIKE 'Na%' OR rowid = 3")
+# Query the database - AND/OR
+# c.execute("SELECT rowid, * FROM customers LIMIT 2")
+c.execute("SELECT rowid, * FROM customers ORDER BY rowid DESC LIMIT 2")
 
 items = c.fetchall()
 
