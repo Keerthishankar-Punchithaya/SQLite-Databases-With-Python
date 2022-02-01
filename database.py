@@ -6,20 +6,15 @@ import sqlite3
 def show_all():
     # connect to database and create cursor
     conn = sqlite3.connect('customer.db')
-
     # create a cursor
     c = conn.cursor()
-
     #  Query the database
     c.execute("SELECT rowid, * FROM customers")
     items = c.fetchall()
-
     for item in items:
         print(item)
-
     # commit our command
     conn.commit()
-
     # close our connection
     conn.close()
 
@@ -33,8 +28,14 @@ def add_one(first,last,email):
     conn.close()
 
 
-# print(c.fetchall())
+# Delete Record from table
+def delete_one(id):
+    conn = sqlite3.connect('customer.db')
+    c = conn.cursor()
+    c.execute("DELETE from customers WHERE rowid = (?)", id)
 
+    conn.commit()
+    conn.close()
 
 
 
